@@ -2,8 +2,8 @@
 
 A comprehensive, step-by-step walkthrough for flashing OpenWRT custom firmware onto the Sercomm S3 router. This repository includes configuration instructions, firmware files, PassWall 2 setup scripts for OpenWrt 24, and visual workflow screenshots.
 
-> **Created and Maintained by:** [Your Name / GitHub Username]  
-> **Repository Link:** [Sercomm S3 OpenWRT Repository](https://github.com/your-username/Sercomm-S3-OpenWRT)
+> **Created and Maintained by:** [Tharuditha Dineth]  
+> **Repository Link:** [Sercomm S3 OpenWRT Repository]([https://github.com/your-username/Sercomm-S3-OpenWRT](https://github.com/tharudithadineth/Sercomm-S3-OpenWRT-Passwall/tree/main))
 
 ---
 
@@ -22,7 +22,7 @@ A comprehensive, step-by-step walkthrough for flashing OpenWRT custom firmware o
 ## 📁 Repository Structure
 
 ```text
-Sercomm S3 OpenWRT/
+.
 ├── Change Config file [step 01]/
 │   └── readme.txt
 ├── Firmware [step 02]/
