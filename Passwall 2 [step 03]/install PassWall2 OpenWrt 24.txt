@@ -1,0 +1,69 @@
+____________________________________________________
+How to install PassWall 2 on OpenWRT Version 24.x.x
+____________________________________________________
+
+
+Step 01 [in Router SSH]
+---------------------------------------------------------------------
+
+sed -i 's/# src/src/g' /etc/opkg/distfeeds.conf
+
+opkg update
+
+opkg remove dnsmasq
+
+opkg install dnsmasq-full
+
+opkg update
+
+opkg install ip-full ipset iptables iptables-nft iptables-mod-tproxy kmod-ipt-tproxy kmod-nft-tproxy kmod-nft-socket kmod-nft-nat coreutils coreutils-base64 coreutils-nohup curl unzip lua liblua5.1.5 libuci-lua
+
+---------------------------------------------------------------------
+
+
+Step 02 [in "resources" folder Terminal]
+---------------------------------------------------------------------
+
+scp *.ipk root@192.168.1.1:/tmp/
+
+scp xray root@192.168.1.1:/usr/bin/
+
+(if ask anything keep continue to forward)
+---------------------------------------------------------------------
+
+
+
+Step 03 [in Router SSH]
+--------------------------------------------------------------------
+
+cd /tmp
+
+opkg install *.ipk
+
+chmod +x /usr/bin/xray
+
+/usr/bin/xray version (for check xray version and confirm it works)
+
+opkg update
+
+opkg install chinadns-ng tcping geoview
+
+cd /tmp
+
+opkg install ./luci-app-passwall2*.ipk
+
+/etc/init.d/rpcd restart
+
+/etc/init.d/uhttpd restart
+
+/etc/init.d/passwall2 restart
+
+---------------------------------------------------------------------
+
+
+Xtray file download link - https://github.com/jameszeroX/Xray-core-UPX/releases/tag/v26.6.27
+(download the "Xray-linux-mips32le-softfloat.zip")
+
+for all ipk files - https://github.com/Openwrt-Passwall/openwrt-passwall2/releases/tag/26.7.16-1
+(download the "luci-app-passwall2_26.7.16-r1_all.ipk" and "passwall_packages_ipk_mipsel_24kc.zip")
+(Extract and keep exact ipk files that same as "resources" folder, delete the other usless ipk files because of storage limitation in Sercomm S3 router and also add the luci-app ipk file into that same folder)
